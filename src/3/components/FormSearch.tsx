@@ -25,7 +25,7 @@ export default function FormSearch({}: Props) {
 		e.preventDefault();
 		dispatch(searchInp(params));
 	}
-	
+
 
 	return (
 		<Box sx={box} component='form'>
