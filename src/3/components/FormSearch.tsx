@@ -16,7 +16,7 @@ const txtField = {
 	mr: '25px'
 };
 
-interface Props {}
+interface Props {};
 
 export default function FormSearch({}: Props) {
 	const [ params, setParams ] = useState<string>('');
