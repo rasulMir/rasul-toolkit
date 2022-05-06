@@ -19,6 +19,9 @@ export default function NavLink({}: Props) {
 				<Button>
 					<Link to='storeapp'> ReduxToolkit Store </Link>
 				</Button>
+				<Button>
+					<Link to='thunkapp'> ReduxToolkit Thunk Store </Link>
+				</Button>
 			</ButtonGroup>
 		</Box>
 	)

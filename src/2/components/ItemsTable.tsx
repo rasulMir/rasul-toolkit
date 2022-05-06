@@ -2,7 +2,7 @@ import React from 'react';
 import { TableHead, TableRow, TableCell, IconButton, TableBody, Table, Container, Avatar, Typography, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { ICard, deleteItem, subtraction, addToCart } from '../redux/storeSlice';
-import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 
 type Props = {};
 
@@ -14,6 +14,7 @@ export default function ItemsTable({}: Props) {
 			<TableHead>
 				<TableRow>
 					<TableCell align="left">НАЗВАНИЕ</TableCell>
+					<TableCell align="left">УДАЛИТЬ</TableCell>
 					<TableCell align="left">ФОТО</TableCell>
 					<TableCell align="left">ЦЕНА</TableCell>
 					<TableCell align="left">КОЛИЧЕСТВО</TableCell>
@@ -23,6 +24,7 @@ export default function ItemsTable({}: Props) {
 			<TableBody>
 				{
 					storeData.map((i : ICard) => (
+						i.amount ? 
 						<TableRow key={i.id}>
 							<TableCell> {i.name} </TableCell>
 							<TableCell size='small'>
@@ -55,8 +57,8 @@ export default function ItemsTable({}: Props) {
 							<TableCell>
 								{ i.amount * i.price }
 							</TableCell>
-						</TableRow>
-					))
+						</TableRow> : <React.Fragment key={i.id}></React.Fragment>
+						))
 				}
 			</TableBody>
 		</Table>

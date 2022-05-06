@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Typography, Card, CardMedia, CardContent, CardActions, Button } from '@mui/material';
 import { addToCart } from '../redux/storeSlice';
-import { useAppDispatch } from '../redux/hooks';
+import { useAppDispatch } from '../../hooks';
 
 interface Props {
 	id : string,

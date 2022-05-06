@@ -4,6 +4,7 @@ import ToDo from './1/ToDo';
 import Cart from './2/components/Cart';
 import Products from './2/components/Products';
 import Store from './2/Store';
+import ThunkStore from './3/ThunkStore';
 import NavLink from './NavLink';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 				<Route index element={<Products/>}/>
 				<Route path='cart' element={<Cart/>}/>
 			</Route>
+			<Route path='thunkapp' element={<ThunkStore/>} />
 		</Routes>
   );
 }

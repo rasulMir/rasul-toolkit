@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
-/toolkit
+/ReduxcreateAsyncThunk
 .pnp.js
 
 # testing

@@ -1,6 +1,6 @@
 import { Container, Grid } from '@mui/material';
 import React from 'react';
-import { useAppSelector } from '../redux/hooks';
+import { useAppSelector } from '../../hooks';
 import { ICard } from '../redux/storeSlice';
 import Items from './Items';
 
