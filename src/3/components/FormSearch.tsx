@@ -1,6 +1,5 @@
 import { Box, TextField, Button } from '@mui/material';
-import React, { FormEvent, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useAppDispatch } from '../../hooks';
 import { searchInp } from '../redux/searchSlice';
 
@@ -19,13 +18,14 @@ const txtField = {
 interface Props {};
 
 export default function FormSearch({}: Props) {
+
 	const [ params, setParams ] = useState<string>('');
 	const dispatch = useAppDispatch();
+
 	const handleClick = (e: React.FormEvent<HTMLButtonElement>) => {
 		e.preventDefault();
 		dispatch(searchInp(params));
 	}
-
 
 	return (
 		<Box sx={box} component='form'>

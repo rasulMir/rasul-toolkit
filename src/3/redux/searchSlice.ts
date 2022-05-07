@@ -63,11 +63,7 @@ export const deleteItemServer = createAsyncThunk(
 			if (!response.ok) {
 					throw new Error('Can\'t delete task. Server error.');
 			}
-
-			// const item = await response.json();
-			// const state = getState();
 			dispatch(deleteItem(id));
-
 		} catch (error) {
 			return rejectWithValue(error);
 		}
@@ -108,7 +104,6 @@ const searchItems = createSlice({
 				state.status = 'resolved';
 				state.items = payload;
 		},
-
 		[`${searchInp.pending}`]: (state: IInitialState) => {
 			state.status = 'loading';
 			state.error = null;
