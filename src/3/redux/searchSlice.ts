@@ -14,6 +14,8 @@ export interface IItem {
 	images: string[],
 }
 
+
+
 export const fetchItems = createAsyncThunk(
 	'search/fetchItems',
 	async function(_, { rejectWithValue }) {
@@ -112,6 +114,7 @@ const searchItems = createSlice({
 				state.status = 'resolved';
 				state.items = payload;
 		},
+
 		[`${fetchItems.rejected}`]: setError,
 		[`${deleteItemServer.rejected}`] : setError,
 		[`${searchInp.rejected}`] : setError,
