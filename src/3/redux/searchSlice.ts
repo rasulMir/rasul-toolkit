@@ -14,8 +14,6 @@ export interface IItem {
 	images: string[],
 }
 
-
-
 export const fetchItems = createAsyncThunk(
 	'search/fetchItems',
 	async function(_, { rejectWithValue }) {

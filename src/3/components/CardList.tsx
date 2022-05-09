@@ -15,7 +15,7 @@ export default function CardList({}: Props) {
 		dispatch(fetchItems());
 	}, []);
 
-	const loading = <Typography component='span' variant='h2'>Loading</Typography>;
+	const loading = <Typography component='span' variant='h2'>Please Wait Loading...</Typography>;
 
 	return (
 		<Grid 
