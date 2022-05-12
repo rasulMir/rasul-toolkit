@@ -1,5 +1,6 @@
+
 import { createAsyncThunk, PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { IState, IUser, IItem } from '../types';
+import { IState, IUser, IItem, ICartItem } from '../types';
 
 const logError = (state: IState, { payload }: PayloadAction<Error>): void => {
 	console.log(payload.message);
@@ -46,7 +47,11 @@ const initialState: IState = {
 	loading : true,
 	orders : [],
 	cart : [],
-	currentUser : false,
+	currentUser : {
+		name : 'rasul',
+		mail: '1@gmail.com',
+		password : '123',
+	},
 	users : [{
 		name : 'rasul',
 		mail: '1@gmail.com',
@@ -82,6 +87,7 @@ const bigStoreSlice = createSlice({
 
 		exitLogin( state ) {
 			state.currentUser = false;
+			state.cart = [];
 		},
 
 		addToCart(state, { payload }: PayloadAction<number>) {
@@ -117,6 +123,7 @@ const bigStoreSlice = createSlice({
 				}
 			});
 		},
+
 		minusCart(state, { payload }: PayloadAction<number>) {
 			state.cart.forEach(i => {
 				if (i.id === payload) {
@@ -125,6 +132,16 @@ const bigStoreSlice = createSlice({
 			});
 		},
 
+		buyItems(state, { payload }: PayloadAction<number>) {
+			state.orders.push({
+				user: state.currentUser,
+				items: state.cart,
+				orderPrice: payload,
+				orderState : 'processed',
+			});
+			state.cart = [];
+
+		},
 	},
 
 	extraReducers : {
@@ -152,5 +169,5 @@ const bigStoreSlice = createSlice({
 });
 
 
-export const { addUser, checkUser, exitLogin, addToCart, delFromCart, plusCart, minusCart } = bigStoreSlice.actions;
+export const { addUser, checkUser, exitLogin, addToCart, delFromCart, plusCart, minusCart, buyItems } = bigStoreSlice.actions;
 export const bigStore = bigStoreSlice.reducer;
