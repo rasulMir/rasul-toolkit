@@ -10,8 +10,12 @@ const store = configureStore({
 		storeApp,
 		searchAsync,
 		bigStore,
+<<<<<<< HEAD
 	},
 	// middleware: (getDefaultMiddleware)=>getDefaultMiddleware().concat(bigStore.middleware)
+=======
+	}
+>>>>>>> 53c5a26283fe3779a45d595c5682983820a3bb60
 });
 
 export default store;

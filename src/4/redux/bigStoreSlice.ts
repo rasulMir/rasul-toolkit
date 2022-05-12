@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 
 import { createAsyncThunk, PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { IState, IUser, IItem, ICartItem } from '../types';
+=======
+import { createAsyncThunk, PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { IState, IUser, IItem } from '../types';
+>>>>>>> 53c5a26283fe3779a45d595c5682983820a3bb60
 
 const logError = (state: IState, { payload }: PayloadAction<Error>): void => {
 	console.log(payload.message);
@@ -47,11 +52,15 @@ const initialState: IState = {
 	loading : true,
 	orders : [],
 	cart : [],
+<<<<<<< HEAD
 	currentUser : {
 		name : 'rasul',
 		mail: '1@gmail.com',
 		password : '123',
 	},
+=======
+	currentUser : false,
+>>>>>>> 53c5a26283fe3779a45d595c5682983820a3bb60
 	users : [{
 		name : 'rasul',
 		mail: '1@gmail.com',
@@ -87,7 +96,10 @@ const bigStoreSlice = createSlice({
 
 		exitLogin( state ) {
 			state.currentUser = false;
+<<<<<<< HEAD
 			state.cart = [];
+=======
+>>>>>>> 53c5a26283fe3779a45d595c5682983820a3bb60
 		},
 
 		addToCart(state, { payload }: PayloadAction<number>) {
@@ -123,7 +135,10 @@ const bigStoreSlice = createSlice({
 				}
 			});
 		},
+<<<<<<< HEAD
 
+=======
+>>>>>>> 53c5a26283fe3779a45d595c5682983820a3bb60
 		minusCart(state, { payload }: PayloadAction<number>) {
 			state.cart.forEach(i => {
 				if (i.id === payload) {
@@ -132,6 +147,7 @@ const bigStoreSlice = createSlice({
 			});
 		},
 
+<<<<<<< HEAD
 		buyItems(state, { payload }: PayloadAction<number>) {
 			state.orders.push({
 				user: state.currentUser,
@@ -142,6 +158,8 @@ const bigStoreSlice = createSlice({
 			state.cart = [];
 
 		},
+=======
+>>>>>>> 53c5a26283fe3779a45d595c5682983820a3bb60
 	},
 
 	extraReducers : {
@@ -169,5 +187,9 @@ const bigStoreSlice = createSlice({
 });
 
 
+<<<<<<< HEAD
 export const { addUser, checkUser, exitLogin, addToCart, delFromCart, plusCart, minusCart, buyItems } = bigStoreSlice.actions;
+=======
+export const { addUser, checkUser, exitLogin, addToCart, delFromCart, plusCart, minusCart } = bigStoreSlice.actions;
+>>>>>>> 53c5a26283fe3779a45d595c5682983820a3bb60
 export const bigStore = bigStoreSlice.reducer;
