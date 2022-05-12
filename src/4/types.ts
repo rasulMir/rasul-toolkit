@@ -3,14 +3,14 @@ export interface IApi {
 	products: IItem[],
 	total: number,
 	skip: number,
-	limit: number
-	}
+	limit: number,
+};
 
 export interface IUser {
 	name: string,
 	password : string,
 	mail : string,
-}
+};
 
 export interface ICartItem {
 	amount: number,
@@ -20,11 +20,18 @@ export interface ICartItem {
 	id: number,
 	category: string,
 	title: string,
-}
+};
+
+export interface IOrders {
+	user: IUser | false,
+	items: ICartItem[],
+	orderPrice: number,
+	orderState: 'processed' | 'delivered' | 'rejected',
+};
 
 export interface IState {
 	loading : boolean,
-	orders : [],
+	orders : IOrders[],
 	cart : ICartItem[],
 	currentUser : false | IUser,
 	users : IUser[],
